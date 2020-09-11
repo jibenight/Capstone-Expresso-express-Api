@@ -24,7 +24,7 @@ db.serialize(function () {
   db.run(
     'CREATE TABLE IF NOT EXISTS `Menu` ( ' +
       '`id` INTEGER NOT NULL, ' +
-      '`name` TEXT NOT NULL, ' +
+      '`title` TEXT NOT NULL, ' +
       'PRIMARY KEY(`id`) )'
   );
   db.run(
