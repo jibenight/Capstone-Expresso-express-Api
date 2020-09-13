@@ -6,6 +6,8 @@ const db = new sqlite3.Database(
   process.env.TEST_DATABASE || './database.sqlite'
 );
 
+const timesheetRouter = require('./timesheet.js');
+
 employeeRouter.param('employeeId', (req, res, next, employeeId) => {
   const sql = 'SELECT * FROM Employee WHERE Employee.id = $employeeId';
   const values = { $employeeId: employeeId };
@@ -20,6 +22,8 @@ employeeRouter.param('employeeId', (req, res, next, employeeId) => {
     }
   });
 });
+
+employeeRouter.use('/:employeeId/timesheets', timesheetRouter);
 
 employeeRouter.get('/', (req, res, next) => {
   db.all(
@@ -94,8 +98,8 @@ employeeRouter.put('/:employeeId', (req, res, next) => {
     } else {
       db.get(
         `SELECT * FROM Employee WHERE Employee.id = ${req.params.employeeId}`,
-        (error, Employee) => {
-          res.status(200).json({ Employee: Employee });
+        (error, employee) => {
+          res.status(200).json({ employee: employee });
         }
       );
     }

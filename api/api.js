@@ -4,7 +4,7 @@ const apiRouter = express.Router();
 const employeeRouter = require('./employee.js');
 apiRouter.use('/employees', employeeRouter);
 
-// const seriesRouter = require('./series.js');
-// apiRouter.use('/series', seriesRouter);
+const timesheetRouter = require('./timesheet.js');
+apiRouter.use('/timesheet', timesheetRouter);
 
 module.exports = apiRouter;
