@@ -3,3 +3,4 @@ build/
 
 # Ignore the default SQLite database.
 /*.sqlite3
+/*.sqlite
