@@ -4,7 +4,7 @@ const apiRouter = express.Router();
 const employeesRouter = require('./employee.js');
 apiRouter.use('/employees', employeesRouter);
 
-// const timesheetRouter = require('./timesheet.js');
-// apiRouter.use('/timesheet', timesheetRouter);
+const menusRouter = require('./menu.js');
+apiRouter.use('/menus', menusRouter);
 
 module.exports = apiRouter;
